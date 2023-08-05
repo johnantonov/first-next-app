@@ -1,95 +1,78 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+
+import { Cookies } from "@/components/Cookies/Cookies";
+import { Form } from "@/components/Form/Form";
+import { HowWeWork } from "@/components/HowWeWork/HowWeWork";
+import { OurExperience } from "@/components/OurExperience/OurExperience";
+import { Principles } from "@/components/Principles/Principles";
+import { Testimonials } from "@/components/Testimonials/Testimonials";
+import { Title } from "@/components/Title/Title";
+import React, { useState, useEffect } from 'react';
+
+
+const HowItems = [
+  { img: '/HowWeWork/light-bulb.svg',
+    title: 'Analysis',
+    text: `Gathering client's ideas we are happy to help with a technical vision.`,
+    id: 'HowItem1'},
+    { img: '/HowWeWork/web-design.svg',
+    title: 'Design',
+    text: `In-depth analysis makes our solutions flexible, scalable and robust.`,
+    id: 'HowItem2'},
+    { img: 'HowWeWork/programming.svg',
+    title: 'Development',
+    text: `Using best practices to make reliable, well-documented and easy to maintain system.`,
+    id: 'HowItem3'},
+    { img: 'HowWeWork/browser.svg',
+    title: 'Maintenance',
+    text: `Gathering client's ideas we are happy to help with a technical vision.`,
+    id: 'HowItem4'},
+    { img: 'HowWeWork/exam.svg',
+    title: 'Testing',
+    text: `Providing best quality of things developed by us for customers`,
+    id: 'HowItem5'},
+    { img: 'HowWeWork/intersect.svg',
+    title: 'Integration',
+    text: `Solutions that go with the times to improve businesses and give customers best experience`,
+    id: 'HowItem6'},
+]
+
+const principles = [
+    {
+      title: 'High Quality',
+      text: `We are the leading firm by delivering quality and value to our clients.
+      All our professionals have huge experience of creating comfortable
+      high-quality software. We like what we do.`,
+      img: 'public/principles/laptop.png',
+      id: 'principles1'
+    },
+    {
+      title: 'Always in touch',
+      text: `We are always ready to answer your questions.
+      You can call us at the weekends and at night.
+      Also you can have a meeting for personal consultation.`,
+      img: 'public/principles/phone.png',
+      id: 'principles2'
+    },
+    {
+      title: 'Individual Approach',
+      text: `Our company works according to the principle of individual approach to every client.
+      This method lets us to get success in problems of all levels.`,
+      img: 'public/principles/cactus.png',
+      id: 'principles3'
+    }
+]
 
 export default function Home() {
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+    <main className="">
+      <Title />
+      <Cookies />
+      <HowWeWork HowItems={HowItems} />
+      <Principles items={principles}/> 
+      <OurExperience />
+      <Testimonials />
     </main>
   )
 }
